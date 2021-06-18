@@ -1,0 +1,25 @@
+<form class="edit-list" [formGroup]="listForm" (ngSubmit)="save()">
+    <div>
+        <label>Caption:</label>
+        <input type="text">
+    </div>
+    <div>
+        <label>Description:</label>
+        <textarea></textarea>
+    </div>
+    <div>
+        <label>Icon:</label>
+        <select>
+            <option><mat-icon>work</mat-icon></option>
+            <option><mat-icon>build</mat-icon></option>
+        </select>
+    </div>
+    <div>
+        <label>Color:</label>
+        <select>
+            <option>green</option>
+            <option>red</option>
+        </select>
+    </div>
+
+</form>

@@ -1,0 +1,60 @@
+:host{
+    display: grid;
+    grid-template-rows: auto, auto;
+}
+
+.main-container{
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(61, 61, 61);
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.main-container h1, .main-container h2{
+    color:white;
+    font-weight: normal;
+}
+
+.main-container p{
+    color: white;
+}
+
+.buttons {
+    padding: 10px;
+}
+
+.buttons button{
+    padding: 5px;
+    margin: 5px;
+    border: 0.5px solid darkred;
+    border-radius: 5px;
+    background-color: rgb(243, 184, 214);
+    color: darkred;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #d4a2bc;
+}
+
+.current-info {
+    grid-row: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.current-info div{
+    padding: 10px;
+    margin: 20px;
+    color: rgb(56, 55, 55);
+}
+
+.current-info div p {
+    color: rgb(146, 145, 145);
+}

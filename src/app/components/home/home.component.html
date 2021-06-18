@@ -1,0 +1,28 @@
+<div class="main-container">
+    <h1>Todos App</h1>
+    <h2>by Orit Hertzog</h2>
+    <p>{{timeDate$ |async| date:'medium'}}</p>
+    <span class="buttons">
+        <button [routerLink]="['/lists/-1/edit']">Create new list</button>
+        <button [routerLink]="['/lists']">View all lists</button>
+        <button [routerLink]="['/items']">View all items</button>
+    </span>
+</div>
+
+<div class="current-info">
+    <div class="lists-info">
+       <mat-icon>list</mat-icon>
+        <h4>number</h4>
+        <p>Lists</p>
+    </div>
+    <div class="items-info">
+        <mat-icon>doneall</mat-icon>
+        <h4>number</h4>
+        <p>Todo items</p>
+    </div>
+    <div class="items-info">
+        <mat-icon>hourglass_empty</mat-icon>
+        <h4>number</h4>
+        <p>Active items</p>
+    </div>
+</div>
