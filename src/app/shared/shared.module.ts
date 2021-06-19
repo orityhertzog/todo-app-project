@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainTitleComponent } from './components/main-title/main-title.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { ErrorsDisplayComponent } from './components/errors-display/errors-display.component';
+
 
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    MainTitleComponent
+    MainTitleComponent,
+    ErrorsDisplayComponent
   ],
   
   imports: [
@@ -18,7 +21,8 @@ import { AppRoutingModule } from '../app-routing.module';
   ],
   exports: [
     NavbarComponent,
-    MainTitleComponent
+    MainTitleComponent,
+    ErrorsDisplayComponent
   ]
 })
 export class SharedModule { }

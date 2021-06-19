@@ -1,7 +1,7 @@
 import {Guid} from "guid-typescript";
 
 export interface TodoList{
-    id : Guid;
+    id : string;
     caption :string;
     description :string;
     iconName :string;

@@ -1,0 +1,30 @@
+:host{
+    display: grid;
+    grid-template-rows: 100px auto;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.edit-list {
+    grid-column: 2;
+    grid-row: 2;
+    width: 650px;
+    padding: 60px;
+    background-color: antiquewhite;
+}
+
+.container {
+    margin: 5px;
+    padding: 5px;
+   
+}
+form button{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+textarea.ng-error.ng-touched{
+    border: 0.5px solid darkred;
+}

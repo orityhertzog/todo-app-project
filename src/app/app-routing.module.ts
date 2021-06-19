@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConcreteListComponent } from './components/concrete-list/concrete-list.component';
-import { EditListComponent } from './components/edit-list/edit-list.component';
+
 import { HomeComponent } from './components/home/home.component';
 import { ItemsComponent } from './components/items/items.component';
-import { ListsComponent } from './components/lists/lists.component';
+import { ConcreteListComponent } from './features/lists/concrete-list/concrete-list.component';
+import { EditListComponent } from './features/lists/edit-list/edit-list.component';
+import { ListsComponent } from './features/lists/lists/lists.component';
 
 const routes: Routes = [
 {path: '', redirectTo: '/home', pathMatch: 'full'},  

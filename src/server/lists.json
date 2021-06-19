@@ -1,0 +1,46 @@
+{
+  "lists": [
+    {
+      "id": "1",
+      "caption": "list1",
+      "description": "des des dfe",
+      "iconName": "home",
+      "color": "green"
+    },
+    {
+      "id": "2",
+      "caption": "list2",
+      "description": "des2 des2 df2e",
+      "iconName": "build",
+      "color": "blue"
+    },
+    {
+      "id": "3",
+      "caption": "list3",
+      "description": "des des dfe",
+      "iconName": "home",
+      "color": "red"
+    },
+    {
+      "id": "4",
+      "caption": "list4",
+      "description": "list 4sdfsdf df sdfs dfs dfs dfsdf sdfsdf sdfs df",
+      "iconName": "home",
+      "color": "red"
+    },
+    {
+      "id": "HxGyf3s",
+      "caption": "list 5",
+      "description": "list 5 list 5 list5 list5 dfg dfg df dfb",
+      "iconName": "build",
+      "color": "green"
+    },
+    {
+      "id": "OQaJHDI",
+      "caption": "list 6",
+      "description": "6 6 6 6 liat6 liat6 liat6 liat7 lidy7 dfg",
+      "iconName": "home",
+      "color": "green"
+    }
+  ]
+}

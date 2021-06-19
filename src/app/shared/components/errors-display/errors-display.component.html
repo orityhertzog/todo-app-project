@@ -1,0 +1,9 @@
+<span class="errors-display-container">
+    <span *ngIf="error['charAmount'] as err">
+        <small>Letters: {{err['currChars']}}/{{err['wantedAmount']}}, </small>
+    </span>
+
+    <span *ngIf="error['wordsAmount'] as err1">
+        <small> Words: {{err1['currentAmount']}}/{{err1['wantedAmount']}} </small>
+    </span>
+</span>

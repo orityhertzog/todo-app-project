@@ -1,0 +1,34 @@
+<form  *ngIf="listForm" class="edit-list" [formGroup]="listForm" (ngSubmit)="onSubmit()">
+    
+    <div class="container">
+        <label>Caption: <i [style.color]="'red'"> *</i></label>
+        <input type="text" formControlName="caption">
+    </div>
+
+    <div class="container">
+        <label>Description:<i [style.color]="'red'"> *</i></label>
+        <textarea formControlName="description"></textarea>
+        <app-errors-display *ngIf="listForm.get('description')?.errors" [error]="listForm.get('description')?.errors"></app-errors-display>
+    </div>
+
+    <div class="container">
+        <mat-form-field>
+            <label>Icon:<i [style.color]="'red'"> *</i></label>
+            <mat-select formControlName="iconName">
+               <mat-option  selected value="home"><mat-icon>home</mat-icon></mat-option>
+               <mat-option value="build"><mat-icon>build</mat-icon></mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="container">
+        <label>Color:<i [style.color]="'red'"> *</i></label>
+        <select formControlName="color">
+            <option>green</option>
+            <option>red</option>
+        </select>
+    </div>
+  
+    <button type="submit" [disabled]="listForm.invalid">Save</button>
+    
+</form>
