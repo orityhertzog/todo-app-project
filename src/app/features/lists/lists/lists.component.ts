@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { TodoList } from 'src/app/core/models/TodoList.model';
+import { ListService } from 'src/app/core/services/list.service';
 
 @Component({
   selector: 'app-lists',
@@ -6,10 +10,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lists.component.css']
 })
 export class ListsComponent implements OnInit {
+  allLists$ !:Observable<TodoList[]>;
 
-  constructor() { }
 
+  constructor(private listService :ListService) { }
+   
   ngOnInit(): void {
+    this.allLists$ = this.listService.getAllLists();
   }
 
 }

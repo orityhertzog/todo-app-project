@@ -14,6 +14,12 @@ export class ListService {
     this.baseUrl = environment.serverUrl;
   }
 
+  getAllLists() :Observable<TodoList[]>{
+    const url = `${this.baseUrl}/lists`;
+    return this.http.get<TodoList[]>(url);
+
+  }
+
    getListById(id :number) :Observable<TodoList>{
      try{
       const url = `${this.baseUrl}/lists/${id}`;

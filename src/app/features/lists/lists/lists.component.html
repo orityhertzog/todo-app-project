@@ -1,1 +1,11 @@
-<p>lists works!</p>
+    <ng-container *ngFor="let list of (allLists$ | async)">
+        <div [routerLink]="list.id" class="main-container" >
+            <div><mat-icon [style.color]="list.color">{{list.iconName}}</mat-icon></div>
+            <div>{{list.caption}}</div>
+        </div>
+    </ng-container>
+    <div routerLink="-1/edit" class="main-container" >
+        <div><mat-icon >add</mat-icon></div>
+        <div>NEW</div>
+    </div>
+

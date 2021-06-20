@@ -27,7 +27,6 @@ import { ListModule } from './features/lists/list.module';
     SharedModule,
     ListModule,
     MatIconModule,
-
     BrowserAnimationsModule
   ],
   providers: [],

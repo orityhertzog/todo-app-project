@@ -10,6 +10,7 @@ import { ConcreteListComponent } from './concrete-list/concrete-list.component';
 import { MatIconModule } from '@angular/material/icon';
 import { CoreModule } from 'src/app/core/core.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
 
@@ -21,6 +22,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     SharedModule,
+    AppRoutingModule,
     CoreModule,
     ReactiveFormsModule,
     FormsModule,
