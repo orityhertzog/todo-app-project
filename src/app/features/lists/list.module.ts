@@ -11,13 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { CoreModule } from 'src/app/core/core.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-
-
+import { ItemsComponent } from '../items/items/items.component';
 
 @NgModule({
   declarations: [ListsComponent,
   EditListComponent,
-  ConcreteListComponent
+  ConcreteListComponent,
+  ItemsComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +34,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
   exports: [
     ListsComponent,
     EditListComponent,
-    ConcreteListComponent
+    ConcreteListComponent,
+    ItemsComponent
   ]
 })
 export class ListModule { }

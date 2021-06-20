@@ -1,0 +1,5 @@
+<span *ngIf="status; else notCompleted"><mat-icon >check_box</mat-icon> {{caption}}</span>
+<ng-template  #notCompleted class="not-completed"><mat-icon >check_box_outline_blank</mat-icon>{{caption}}</ng-template>
+
+
+

@@ -16,7 +16,6 @@ import { ValidationService } from 'src/app/core/services/validation.service';
 
 export class EditListComponent implements OnInit {
   listForm !:FormGroup;
-  myList$ !:Observable<TodoList>;
   
   
 
@@ -76,7 +75,6 @@ export class EditListComponent implements OnInit {
         await this.newList(id);
         }
         else{
-          console.log(id + ", " + typeof(id));
           await this.editList(id);
         }
       });

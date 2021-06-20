@@ -17,12 +17,12 @@
     </div>
     <div class="items-info">
         <mat-icon>doneall</mat-icon>
-        <h4>number</h4>
+        <h4>{{items$ |async}}</h4>
         <p>Todo items</p>
     </div>
     <div class="items-info">
         <mat-icon>hourglass_empty</mat-icon>
-        <h4>number</h4>
+        <h4>{{itemsActive$ |async}}</h4>
         <p>Active items</p>
     </div>
 </div>

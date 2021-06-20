@@ -1,1 +1,19 @@
-<p>concrete-list works!</p>
+<div class="list-container" *ngIf="(list$ |async) as list">
+    <h3 [style.color]="list.color">Lists > {{list.caption}}</h3>
+    <span class="icon-and-description"><mat-icon>{{list.iconName}}</mat-icon> {{list.description}} </span>
+        
+            <span class="button-controls">
+                <button [routerLink]="['/','lists', '-1', 'edit']"> New list...</button>
+                <button [routerLink]="['/','lists', list.id, 'edit']"> Edit...</button>
+                <button> Delete</button>
+            </span>
+        
+   
+</div>
+<div *ngFor="let item of (listItems$ |async)">
+    <app-items [caption]=item.caption [status]=item.isCompleted></app-items>
+</div>
+<form [formGroup]="addItemForm" (ngSubmit)="onAdd()">
+    <mat-icon>check_box_outline_blank</mat-icon>
+    <input type="text" formControlName="caption">
+    <button type="submit"><mat-icon>add</mat-icon></button></form>
