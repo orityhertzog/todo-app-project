@@ -16,8 +16,6 @@ import { ValidationService } from 'src/app/core/services/validation.service';
 
 export class EditListComponent implements OnInit {
   listForm !:FormGroup;
-  
-  
 
   constructor(
     private listService :ListService,
@@ -45,8 +43,8 @@ export class EditListComponent implements OnInit {
       this.listForm = this.formBuilder.group({
         id: [''],
         caption: ['', [Validators.required]],
-        description: ['', [Validators.required, this.validator.wordsAmountValidation,
-                      this.validator.charAmountValidation]],
+        description: ['', [Validators.required, this.validator.wordsAmountValidation(10),
+                      this.validator.charAmountValidation(30)]],
         iconName: ['', [Validators.required]],
         color: ['', [Validators.required]]
       });
@@ -56,8 +54,8 @@ export class EditListComponent implements OnInit {
       this.listForm = this.formBuilder.group({
         id: [p.id],
         caption: [p.caption, [Validators.required]], 
-        description: [p.description, [Validators.required, this.validator.wordsAmountValidation,
-          this.validator.charAmountValidation]],
+        description: [p.description, [Validators.required, this.validator.wordsAmountValidation(10),
+          this.validator.charAmountValidation(30)]],
         iconName: [p.iconName, [Validators.required]],
         color: [p.color, [Validators.required]]
       });
@@ -73,12 +71,14 @@ export class EditListComponent implements OnInit {
       ).subscribe(async id =>{
         if(Number(id) === -1){
         await this.newList(id);
+        this.route.navigate(['/', 'lists']);
         }
         else{
           await this.editList(id);
+          this.route.navigate(['/', 'lists']);
         }
       });
-      this.route.navigate(['/', 'lists']);
+      
 
     }
 
@@ -92,12 +92,12 @@ export class EditListComponent implements OnInit {
     }
 
   editList(id: string) :Promise<TodoList>{
-    return this.listService.editList(this.listForm.value).toPromise();
+    return this.listService.editList(this.listForm.value);
   }
 
   newList(id: string) :Promise<TodoList>{
-    return this.listService.addList(this.listForm.value).toPromise(); 
+    return this.listService.addList(this.listForm.value); 
   }
-    
 
+    
 }

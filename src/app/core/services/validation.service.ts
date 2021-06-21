@@ -9,38 +9,36 @@ export class ValidationService {
   constructor() { }
 
   
-  wordsAmountValidation(control :FormControl) :ValidationErrors | null {
-    if(!control) return null;
-    if(!control.value) return null;
-    let wordsAmount = 10;
-    let currenValue: string = control.value;
-    let valuesAsArray = currenValue.trim().split(' ').filter(x => x);
-
-    if(valuesAsArray.length >= wordsAmount)
+  wordsAmountValidation(amount :number) :(control :FormControl) => ValidationErrors | null {
+    return (control :FormControl) =>
     {
-      return null;
-    }
-    return {
-            'wordsAmount': {
-            currentAmount: valuesAsArray.length,
-            wantedAmount: wordsAmount
+       if(!control) return null;
+       if(!control.value) return null;
+       let currenValue: string = control.value;
+       let valuesAsArray = currenValue.trim().split(' ').filter(x => x);
+
+       if(valuesAsArray.length >= amount) return null;
+       return {
+          'wordsAmount': {
+           currentAmount: valuesAsArray.length,
+           wantedAmount: amount
              }
           }
-  }
+   }
+ }
 
-  charAmountValidation(control :FormControl) :ValidationErrors | null {
-    if(!control) return null;
-    if(!control.value) return null;
-    let charAmount = 30;
-    let currentCharAmount :number  = control.value.trim().split('').filter((word :string) => word != ' ').length;
-    if (currentCharAmount >= charAmount){
-      return null;
-    }
-    return {
-      'charAmount': {
-        currChars: currentCharAmount,
-        wantedAmount: charAmount
+  charAmountValidation(amount: number): (control :FormControl)  => ValidationErrors | null {
+    return (control: FormControl) => {
+        if(!control) return null;
+        if(!control.value) return null;
+        let currentCharAmount :number  = control.value.trim().split('').filter((word :string) => word != ' ').length;
+        if (currentCharAmount >= amount) return null;
+        return {
+            'charAmount': {
+             currChars: currentCharAmount,
+             wantedAmount: amount
+            }
         }
-      }
+    }
   }
 }

@@ -1,0 +1,13 @@
+.checkbox {
+    cursor: pointer;
+}
+
+.checkbox:hover {
+    background-color: lightcyan;
+}
+
+.completed {
+    text-decoration-line: line-through;
+    color:rgba(0, 0, 0, 0.45)
+    
+}

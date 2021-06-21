@@ -1,49 +1,19 @@
 {
-  "items": [
-    {
-      "id": "1",
-      "caption": "item1",
-      "listId": "1",
-      "isCompleted": true
-    },
-    {
-      "id": "2",
-      "caption": "item2",
-      "listId": "2",
-      "isCompleted": true
-    },
-    {
-      "caption": "item3",
-      "listId": "1",
-      "isCompleted": false,
-      "id": "uKN1eER"
-    },
-    {
-      "id": "M4Ro9hw",
-      "listId": "1",
-      "caption": "item4",
-      "isComplete": false
-    },
-    {
-      "id": "rqlmqmo",
-      "listId": "1",
-      "caption": "item5",
-      "isComplete": false
-    },
-    {
-      "id": "gHyBnOJ",
-      "listId": "1",
-      "caption": "item6",
-      "isComplete": false
-    }
-  ],
+  "items": [],
   "lists": [
     {
-      "id": "1",
-      "caption": "list1",
-      "description": "the first list in a while i have got todo it",
+      "id": 1,
+      "caption": "pingi ",
+      "description": "pingi is in need for some series shoping for ice abd stuff ya",
+      "iconName": "build",
+      "color": "red"
+    },
+    {
+      "id": 2,
+      "caption": "kipi",
+      "description": "kipi needs to do lots of stuff so he needs a special list for it ya",
       "iconName": "home",
-      "color": "green"
+      "color": "red"
     }
   ]
 }

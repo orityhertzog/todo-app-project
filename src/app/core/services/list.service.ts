@@ -1,22 +1,31 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable} from 'rxjs';
+import { BehaviorSubject, Observable} from 'rxjs';
 import { TodoList } from '../models/TodoList.model';
 import { environment } from 'src/environments/environment';
+import { TodoItem } from '../models/TodoItem.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListService {
   private readonly baseUrl :string ='';
+  private lists$ = new BehaviorSubject<TodoList[]>([]);
+
+  get Lists$() :Observable<TodoList[]>{
+    return this.lists$.asObservable();
+  }
+  
 
   constructor(private http: HttpClient) {
     this.baseUrl = environment.serverUrl;
   }
 
-  getAllLists() :Observable<TodoList[]>{
+  async loadAllLists() :Promise<TodoList[]>{
     const url = `${this.baseUrl}/lists`;
-    return this.http.get<TodoList[]>(url);
+    const lists = await this.http.get<TodoList[]>(url).toPromise();
+    this.lists$.next(lists);
+    return lists;
 
   }
 
@@ -30,15 +39,24 @@ export class ListService {
      }
   }
 
-  addList(list :TodoList) :Observable<TodoList>{
+  async addList(list :TodoList) :Promise<TodoList>{
     const url = `${this.baseUrl}/lists`;
-    let newList = this.http.post<TodoList>(url, list);
+    let newList = await this.http.post<TodoList>(url, list).toPromise();
+    this.loadAllLists();
     return newList;  
   }
 
-  editList(list :TodoList) :Observable<TodoList>{
+  async editList(list :TodoList) :Promise<TodoList>{
     const url = `${this.baseUrl}/lists/${list.id}`;
-    let editList = this.http.put<TodoList>(url, list);
+    let editList = this.http.put<TodoList>(url, list).toPromise();
+    this.loadAllLists();
     return editList;
+  }
+
+  async deleteList(id :string) :Promise<TodoList>{
+    const url = `${this.baseUrl}/lists/${id}`;
+    const deletedItem = await this.http.delete<TodoList>(url).toPromise();
+    this.loadAllLists();
+    return deletedItem;
   }
 }
