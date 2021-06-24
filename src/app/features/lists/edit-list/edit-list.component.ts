@@ -16,7 +16,10 @@ import { ValidationService } from 'src/app/core/services/validation.service';
 
 export class EditListComponent implements OnInit {
   listForm !:FormGroup;
-
+  colors :string[] = ['green', 'blue', 'red', 'cyan', 'magenta', 'brown', 'coral', 'black', 'fuchsia', 'gold', 'lime'];
+  icons :string[] =['home', 'build', 'local_cafe', 'school','cake','fitness_center' ,'android', 'assignment', 'calendar_today',
+   'card_giftcard', 'favorite', 'airplanemode_active', 'pets', 'schedule', 'shop', 'store', 'call', 'email',
+    'headset', 'audiotrack', 'directions_car', ]
   constructor(
     private listService :ListService,
     private formBuilder :FormBuilder,

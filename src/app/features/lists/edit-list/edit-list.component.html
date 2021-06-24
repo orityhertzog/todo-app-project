@@ -7,16 +7,22 @@
 
     <div class="container">
         <label>Description:<i [style.color]="'red'"> *</i></label>
-        <textarea formControlName="description"></textarea>
+        <textarea formControlName="description" placeholder="write list description with at least 30 characters and 10 words"></textarea>
         <app-errors-display *ngIf="listForm.get('description')?.errors" [error]="listForm.get('description')?.errors"></app-errors-display>
     </div>
 
     <div class="container">
         <mat-form-field>
-            <label>Icon:<i [style.color]="'red'"> *</i></label>
-            <mat-select formControlName="iconName">
-               <mat-option  selected value="home"><mat-icon>home</mat-icon></mat-option>
-               <mat-option value="build"><mat-icon>build</mat-icon></mat-option>
+            
+            <mat-select formControlName="iconName" placeholder="Icon:" >
+              
+               <mat-option  *ngFor="let icon of icons" value="icon">
+                   <mat-icon >{{icon}}</mat-icon>
+              
+                </mat-option>
+                <mat-select-trigger>
+                    <mat-icon></mat-icon>
+                </mat-select-trigger>
             </mat-select>
         </mat-form-field>
     </div>
@@ -24,8 +30,7 @@
     <div class="container">
         <label>Color:<i [style.color]="'red'"> *</i></label>
         <select formControlName="color">
-            <option [style.color]="'green'">green</option>
-            <option [style.color]="'red'">red</option>
+            <option *ngFor="let color of colors" [style.color]=color >{{color}}</option>
         </select>
     </div>
   

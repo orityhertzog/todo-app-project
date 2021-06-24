@@ -1,11 +1,13 @@
-<span *ngIf="status; else notCompleted" >
-    <mat-icon class="checkbox" (click)="completeToggle()">check_box</mat-icon>
-    <i class="completed"> {{caption}}</i>
-</span>
-<ng-template  #notCompleted class="not-completed">
-    <mat-icon class="checkbox" (click)="completeToggle()">check_box_outline_blank</mat-icon>
-   {{caption}}
-</ng-template>
+<ng-container *ngIf="((activeItems$ |async)!.length > 0)">
+<div *ngFor="let item of (activeItems$ | async)">
+    <app-item-display [caption]="item.caption" [status]="item.isCompleted" (complete)="completedItem(item.id)" (notComplete)="notCompletedItem(item.id)"></app-item-display>
 
-
-
+</div>
+</ng-container>
+<ng-container *ngIf="((activeItems$ |async)!.length === 0)">
+    <div>
+     <h1>You have no active items!</h1>
+    </div>
+    <button routerLink="/home">Home</button>
+    <button routerLink="/lists">Lists</button>
+</ng-container>

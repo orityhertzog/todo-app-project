@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { TodoItem } from 'src/app/core/models/TodoItem.model';
+import { ItemService } from 'src/app/core/services/item.service';
 
 @Component({
   selector: 'app-items',
@@ -9,25 +10,24 @@ import { TodoItem } from 'src/app/core/models/TodoItem.model';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  @Input() caption !:string;
-  @Input() status !: boolean;
-  @Output() complete = new EventEmitter<any>();
-  @Output() notComplete = new EventEmitter<any>();
+  activeItems$ !: Observable<TodoItem[]>;
 
-  constructor() { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
-    
+    this.activeItems$  = this.itemService.Items$.pipe(
+     map(items => (items.filter(item => item.isCompleted === false))));
   }
 
-   completeToggle(){
-    if(this.status){
-      this.notComplete.emit(null);
-    }
-    else{
-      this.complete.emit(null);
-    }
+  completedItem(id :string){
+    this.itemService.editCompleteStatus(true, id);
+
   }
+
+  notCompletedItem(id :string){
+    this.itemService.editCompleteStatus(false, id);
+  }
+
 } 
 
 

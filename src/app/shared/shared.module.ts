@@ -4,6 +4,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainTitleComponent } from './components/main-title/main-title.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ErrorsDisplayComponent } from './components/errors-display/errors-display.component';
+import { ItemDisplayComponent } from './components/item-display/item-display.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -12,17 +14,21 @@ import { ErrorsDisplayComponent } from './components/errors-display/errors-displ
   declarations: [
     NavbarComponent,
     MainTitleComponent,
-    ErrorsDisplayComponent
+    ErrorsDisplayComponent,
+    ItemDisplayComponent
   ],
   
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatIconModule,
+    
   ],
   exports: [
     NavbarComponent,
     MainTitleComponent,
-    ErrorsDisplayComponent
+    ErrorsDisplayComponent,
+    ItemDisplayComponent
   ]
 })
 export class SharedModule { }

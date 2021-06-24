@@ -27,7 +27,7 @@
    
 </div>
 <div *ngFor="let item of (listItems$ |async)">
-    <app-items [caption]= "item.caption" [status]= "item.isCompleted" (complete)="editStatusToComplete(item.id)" (notComplete)="editStatusToNotComplete(item.id)"></app-items>
+    <app-item-display [caption]= "item.caption" [status]= "item.isCompleted" (complete)="editStatusToComplete(item.id)" (notComplete)="editStatusToNotComplete(item.id)"></app-item-display>
 </div>
 <form [formGroup]="addItemForm" (ngSubmit)="onAdd()">
    
