@@ -1,39 +1,46 @@
 <form  *ngIf="listForm" class="edit-list" [formGroup]="listForm" (ngSubmit)="onSubmit()">
     
     <div class="container">
-        <label>Caption: <i [style.color]="'red'"> *</i></label>
-        <input type="text" formControlName="caption">
+            <mat-label>Caption: <i [style.color]="'red'"> *</i></mat-label>
+            <input type="text" formControlName="caption">
     </div>
 
-    <div class="container">
-        <label>Description:<i [style.color]="'red'"> *</i></label>
-        <textarea formControlName="description" placeholder="write list description with at least 30 characters and 10 words"></textarea>
-        <app-errors-display *ngIf="listForm.get('description')?.errors" [error]="listForm.get('description')?.errors"></app-errors-display>
-    </div>
+        <div class="container">
+            <mat-label>Description:<i [style.color]="'red'"> *</i></mat-label>
+            <textarea  formControlName="description" placeholder="description with at least 30 characters and 10 words"></textarea>
+            <app-errors-display *ngIf="listForm.get('description')?.errors" [error]="listForm.get('description')?.errors"></app-errors-display>
+        </div>
 
-    <div class="container">
+
+    <span class="container">
         <mat-form-field>
-            
-            <mat-select formControlName="iconName" placeholder="Icon:" >
-              
-               <mat-option  *ngFor="let icon of icons" value="icon">
-                   <mat-icon >{{icon}}</mat-icon>
-              
+            <mat-label>Icon:<i [style.color]="'red'"> *</i></mat-label>
+            <mat-select formControlName="iconName"> 
+                <mat-option *ngFor="let icon of icons" [value]="icon">
+                    <mat-icon>{{icon}}</mat-icon>
                 </mat-option>
-                <mat-select-trigger>
-                    <mat-icon></mat-icon>
-                </mat-select-trigger>
+                <mat-select-trigger >
+                    <mat-icon [style.color]="'rgba(50, 50, 50, 0.7)'">{{listForm.value.iconName}}</mat-icon>
+                </mat-select-trigger>  
             </mat-select>
         </mat-form-field>
-    </div>
+    </span>
 
-    <div class="container">
-        <label>Color:<i [style.color]="'red'"> *</i></label>
-        <select formControlName="color">
-            <option *ngFor="let color of colors" [style.color]=color >{{color}}</option>
-        </select>
-    </div>
-  
-    <button type="submit" [disabled]="listForm.invalid">Save</button>
+    <span class="container">
+        <mat-form-field>
+            <mat-label>Color:<i [style.color]="'red'"> *</i></mat-label>
+            <mat-select formControlName="color" placeholder="color: ">
+                <mat-option *ngFor="let color of colors" [value]="color" [style.color]="color">
+                    {{color}}
+                </mat-option>
+                <mat-select-trigger [style.color]="listForm.value.color">
+                    {{listForm.value.color}}
+                </mat-select-trigger> 
+            </mat-select>
+        </mat-form-field>
+    </span>
+    <div class="btn-container">
+    <button class="submit-button" type="submit" [disabled]="listForm.invalid">Save</button>
+    </div>  
     
 </form>

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable} from 'rxjs';
 import { TodoList } from '../models/TodoList.model';
 import { environment } from 'src/environments/environment';
-import { TodoItem } from '../models/TodoItem.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,7 @@ import { TodoItem } from '../models/TodoItem.model';
 export class ListService {
   private readonly baseUrl :string ='';
   private lists$ = new BehaviorSubject<TodoList[]>([]);
+  private listLoaded: boolean = false;
 
   get Lists$() :Observable<TodoList[]>{
     return this.lists$.asObservable();
@@ -19,9 +20,14 @@ export class ListService {
 
   constructor(private http: HttpClient) {
     this.baseUrl = environment.serverUrl;
+    if(!this.listLoaded){
+      this.loadAllLists();
+    }
+
   }
 
   async loadAllLists() :Promise<TodoList[]>{
+    this.listLoaded = true;
     const url = `${this.baseUrl}/lists`;
     const lists = await this.http.get<TodoList[]>(url).toPromise();
     this.lists$.next(lists);
@@ -29,7 +35,7 @@ export class ListService {
 
   }
 
-   getListById(id :number) :Observable<TodoList>{
+   getListById(id :string) :Observable<TodoList>{
      try{
       const url = `${this.baseUrl}/lists/${id}`;
       return this.http.get<TodoList>(url);

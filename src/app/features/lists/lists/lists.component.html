@@ -1,11 +1,20 @@
-    <ng-container *ngFor="let list of (allLists$ | async)">
-        <div [routerLink]="list.id" class="main-container" >
-            <div><mat-icon [style.color]="list.color">{{list.iconName}}</mat-icon></div>
-            <div>{{list.caption}}</div>
-        </div>
-    </ng-container>
-    <div routerLink="-1/edit" class="main-container" >
-        <div><mat-icon >add</mat-icon></div>
-        <div>NEW</div>
+<div class="page-container">
+    <div class="heading">Lists: </div>
+    <div class="lists-container">
+        <ng-container *ngFor="let list of (allLists$ | async)">
+            <div [routerLink]="list.id" class="main-container" >
+                <div class="div-icon">
+                    <mat-icon class="mat-icon" [style.color]="list.color">{{list.iconName}}</mat-icon>
+                </div >
+                <div class="caption">{{list.caption}}</div>
+            </div>
+        </ng-container>
+            <div routerLink="-1/edit" class="new main-container">
+                <div class="div-icon">
+                    <mat-icon class="icon">add</mat-icon>
+                </div >
+                <div class="caption">NEW</div>
+            </div>
     </div>
+</div>
 

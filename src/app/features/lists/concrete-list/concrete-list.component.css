@@ -1,5 +1,75 @@
-.button-controls button {
-    width: 80px;
+.reg-btn {
+    width: var(--btn-size);
+    border: var(--btn-border);
+    border-radius: var(--btn-border-rad);
+    background-color: var(--btn-bg-clr);
     margin: 5px;
     padding: 5px;
+    cursor: pointer;
+}
+
+.reg-btn:hover {
+    background-color: var(--btn-hover-clr);
+}
+
+.danger-btn {
+    width: var(--btn-size);
+    background-color: var(--btn-danger-bg-clr);
+    border: var(--btn-danger-border);
+    border-radius: var(--btn-border-rad);
+    color: var(--btn-danger-clr);
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.danger-btn:hover {
+    background-color: var(--btn-danger-hover-clr);
+}
+
+.button-controls {
+    padding: 5px;
+    margin: 5px;
+   
+}
+
+.mat-icons {
+    font-size: 80px;
+    width: 80px;
+    height: 80px;
+}
+
+.list-container {
+    margin: 5px;
+
+}
+
+.description {
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.icon-and-description {
+    display: flex;
+    flex-direction: row;
+
+}
+
+b {
+    margin-left: 15px;
+}
+
+.items, .add-items {
+    margin: 10px;
+}
+
+.add-button {
+    margin: 5px;
+    cursor: pointer;
+}
+
+.add-container {
+
 }

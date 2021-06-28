@@ -17,9 +17,10 @@ import { ValidationService } from 'src/app/core/services/validation.service';
 export class EditListComponent implements OnInit {
   listForm !:FormGroup;
   colors :string[] = ['green', 'blue', 'red', 'cyan', 'magenta', 'brown', 'coral', 'black', 'fuchsia', 'gold', 'lime'];
-  icons :string[] =['home', 'build', 'local_cafe', 'school','cake','fitness_center' ,'android', 'assignment', 'calendar_today',
-   'card_giftcard', 'favorite', 'airplanemode_active', 'pets', 'schedule', 'shop', 'store', 'call', 'email',
-    'headset', 'audiotrack', 'directions_car', ]
+  icons :string[] =['home', 'build', 'local_cafe', 'shopping_cart', 'pregnant_woman', 'stars','school','cake','fitness_center'
+   ,'android', 'assignment', 'calendar_today', 'card_giftcard', 'favorite', 'airplanemode_active', 'pets',
+    'schedule', 'shop', 'store', 'call', 'email', 'headset', 'audiotrack', 'directions_car', 'flag', 'weekend']
+    
   constructor(
     private listService :ListService,
     private formBuilder :FormBuilder,
@@ -42,7 +43,7 @@ export class EditListComponent implements OnInit {
     * if id is equal to -1 then create a new list, otherwise edit the list.
     */
 
-    if(Number(id) === -1){
+    if(id === "-1"){
       this.listForm = this.formBuilder.group({
         id: [''],
         caption: ['', [Validators.required]],
@@ -53,7 +54,7 @@ export class EditListComponent implements OnInit {
       });
     }
     else{
-      let p =  await this.getListById(Number(id));
+      let p =  await this.getListById(id);
       this.listForm = this.formBuilder.group({
         id: [p.id],
         caption: [p.caption, [Validators.required]], 
@@ -72,7 +73,7 @@ export class EditListComponent implements OnInit {
         map(pararms => pararms.id),
         filter(id => id)
       ).subscribe(async id =>{
-        if(Number(id) === -1){
+        if(id === '-1'){
         await this.newList(id);
         this.route.navigate(['/', 'lists']);
         }
@@ -85,11 +86,10 @@ export class EditListComponent implements OnInit {
 
     }
 
-    getListById(id :number) :Promise<TodoList>{
+    getListById(id :string) :Promise<TodoList>{
       try{
       return this.listService.getListById(id).toPromise();
       }catch(e){
-        console.log(e);
         return e;
       }
     }

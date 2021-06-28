@@ -1,39 +1,38 @@
 <div class="list-container" *ngIf="(list$ |async) as list">
    
-    <h3 [style.color]="list.color">Lists > {{list.caption}}</h3>
+    <h3 [style.color]="list.color"> Lists > {{list.caption}}</h3>
     <span class="icon-and-description">
-        <mat-icon>{{list.iconName}}</mat-icon>
-        <span *ngIf="!toDelete">{{list.description}} 
+        <mat-icon class="mat-icons" [style.color]="list.color">{{list.iconName}}</mat-icon>
+        <span class="description" *ngIf="!toDelete"><b>{{list.description}} </b>
             <div>
                 <span class="button-controls">
-                    <button [routerLink]="['/','lists', '-1', 'edit']"> New list...</button>
-                    <button [routerLink]="['/','lists', list.id, 'edit']"> Edit...</button>
-                    <button type="button" (click)="onDelete()"> Delete</button>
+                    <button class="reg-btn" [routerLink]="['/','lists', '-1', 'edit']"> New list...</button>
+                    <button class="reg-btn" [routerLink]="['/','lists', list.id, 'edit']"> Edit...</button>
+                    <button class="danger-btn" type="button" (click)="onDelete()"> Delete</button>
                 </span>
             </div>
         </span>
-        <span *ngIf="toDelete">Are you sure you want to delete the entire list?
+        <span class="description" [style.color]="'red'" *ngIf="toDelete"><b>Are you sure you want to delete the entire list?</b>
             <div>
                 <span class="button-controls">
-                <button (click)="onDelete()">Cancel</button>
-                <button (click)="DeleteList(list.id)">Delete</button>
+                <button class="reg-btn" (click)="onDelete()">Cancel</button>
+                <button class="danger-btn" (click)="DeleteList(list.id)">Delete</button>
                 </span>
             </div>
         </span>
     </span>
         
-          
-        
-   
+
 </div>
-<div *ngFor="let item of (listItems$ |async)">
+<div class="items" *ngFor="let item of (listItems$ |async)">
     <app-item-display [caption]= "item.caption" [status]= "item.isCompleted" (complete)="editStatusToComplete(item.id)" (notComplete)="editStatusToNotComplete(item.id)"></app-item-display>
 </div>
-<form [formGroup]="addItemForm" (ngSubmit)="onAdd()">
-   
+<form class="add-items" [formGroup]="addItemForm" (ngSubmit)="onAdd()">
+   <span class="add-container">
         <mat-icon>check_box_outline_blank</mat-icon>
         <input type="text" formControlName="caption">
-        <button type="submit" [disabled]="addItemForm.invalid"><mat-icon>add</mat-icon></button>
+        <button class="add-button" type="submit" [disabled]="addItemForm.invalid"><mat-icon >add</mat-icon></button>
+    </span>
   <div>
     <app-errors-display *ngIf="addItemForm.get('caption')?.errors" [error]="addItemForm.get('caption')?.errors"></app-errors-display>
 </div>

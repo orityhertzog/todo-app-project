@@ -50,10 +50,8 @@ export class ItemService {
       const items = await this.loadAllItems();
       const url = `${this.baseUrl}/items`;
       for(let i=0; i<items.length; i++){
-        console.log(url+id);
         await this.http.delete<TodoItem>(url+id);
       }
-      
   }
 
 }

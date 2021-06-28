@@ -1,4 +1,28 @@
+:root{
+    /*<--- buttons: ---> */
+    --btn-size: 80px;
+    --btn-bg-clr: lightGrey;
+    --btn-border: 0.5px solid darkGrey;
+    --btn-border-rad: 5px;
+    --btn-hover-clr:  rgba(120, 120, 120, 0.664);
+    --btn-danger-bg-clr: rgb(243, 184, 214);
+    --btn-danger-clr: darkred;
+    --btn-danger-border: 0.5px solid darkred;
+    --btn-danger-hover-clr:  #d4a2bc; 
 
+    /*<--- containers: ---> */
+    --container-bg-clr: rgb(232, 228, 255);
+    --container-new-bg-clr: rgba(66, 65, 71, 0.363);
+    --container-border: 1px solid rgba(53, 38, 255, 0.459);
+    --container-border-rad: 3px;
+    --container-hover-clr: rgba(220, 217, 243, 0.774);
+    --container-new-hover-clr: #1010136c;
+    --container-shadow: drop-shadow(0 20px 20px rgba(0, 0, 0, 0.15))
+                        drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2))
+                        drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
+    
+
+}
 
 html, body{
     height: 100%;

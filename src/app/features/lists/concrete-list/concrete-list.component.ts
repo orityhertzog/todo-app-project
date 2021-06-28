@@ -38,7 +38,7 @@ export class ConcreteListComponent implements OnInit {
     
     readingListItems(id :string) :Observable<TodoItem[]>{
       return this.itemService.Items$.pipe(map(item => 
-                                              item.filter(item => Number(item.listId) === Number(id))))
+                                              item.filter(item => item.listId === id)))
     }
 
     buildForm(liId: string){
@@ -54,7 +54,6 @@ export class ConcreteListComponent implements OnInit {
     onAdd(){
       this.itemService.addItem(this.addItemForm.value)
         this.addItemForm.get('caption')?.reset();
-      
     }
 
     editStatusToComplete(id :string){

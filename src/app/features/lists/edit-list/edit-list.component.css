@@ -1,30 +1,50 @@
 :host{
     display: grid;
     grid-template-rows: 100px auto;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .edit-list {
     grid-column: 2;
     grid-row: 2;
-    width: 650px;
     padding: 60px;
-    background-color: antiquewhite;
+    border: var(--container-border);
+    border-radius: var(--container-border-rad);
+    background-color: var(--container-bg-clr);
+    filter: var(--container-shadow);
+        
 }
 
 .container {
-    margin: 5px;
-    padding: 5px;
-   
+    margin: 10px;
+    padding: 10px; 
 }
-form button{
+
+.btn-container {
     display: flex;
     flex-direction: row;
-    align-content: center;
+    justify-content: flex-end;
+}
+
+textarea, input {
+    background-color:rgba(245, 245, 220, 0.466);
+}
+
+.submit-button{
     margin: 5px;
     padding: 5px;
+    width: var(--btn-size);
+    background-color: var(--btn-bg-clr);
+    border: var(--btn-border);
+    border-radius: var(--btn-border-rad);
+    cursor: pointer;
+
+}
+.submit-button:hover {
+    background-color: var(--btn-hover-clr);
 }
 
 textarea.ng-error.ng-touched{
     border: 0.5px solid darkred;
 }
+

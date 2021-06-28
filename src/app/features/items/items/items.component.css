@@ -1,0 +1,33 @@
+:host {
+    display: grid;
+}
+
+.display-items {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    padding: 5px;
+}
+
+b {
+    margin: 5px;
+    padding: 5px;
+    font-size: larger;
+    font-weight: 100;
+    background-color: rgb(202, 219, 219);
+    width: 150px;
+}
+
+.buttons button{
+    background-color: var(--btn-bg-clr);
+    border: var(--btn-border);
+    border-radius: var(--btn-border-rad);
+    width: var(--btn-size);
+    margin:5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: var(--btn-hover-clr);
+}

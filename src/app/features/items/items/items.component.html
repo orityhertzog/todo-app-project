@@ -1,13 +1,21 @@
+
+<div class="display-items">
 <ng-container *ngIf="((activeItems$ |async)!.length > 0)">
+    <b>Active items: </b>
 <div *ngFor="let item of (activeItems$ | async)">
     <app-item-display [caption]="item.caption" [status]="item.isCompleted" (complete)="completedItem(item.id)" (notComplete)="notCompletedItem(item.id)"></app-item-display>
 
 </div>
 </ng-container>
+</div>
+<div class="display-items">
 <ng-container *ngIf="((activeItems$ |async)!.length === 0)">
     <div>
      <h1>You have no active items!</h1>
     </div>
-    <button routerLink="/home">Home</button>
-    <button routerLink="/lists">Lists</button>
+    <span class="buttons">
+        <button routerLink="/home">Home</button>
+        <button routerLink="/lists">Lists</button>
+    </span>
 </ng-container>
+</div>
