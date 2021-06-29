@@ -64,6 +64,7 @@
 
 .new{
     background-color: var(--container-new-bg-clr);
+    border: var(--container-new-border);
 }
 
 .new:hover {

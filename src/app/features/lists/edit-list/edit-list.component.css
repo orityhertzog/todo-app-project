@@ -26,10 +26,6 @@
     justify-content: flex-end;
 }
 
-textarea, input {
-    background-color:rgba(245, 245, 220, 0.466);
-}
-
 .submit-button{
     margin: 5px;
     padding: 5px;
@@ -40,8 +36,29 @@ textarea, input {
     cursor: pointer;
 
 }
-.submit-button:hover {
+.button:active:hover:not([disabled]) {
+
     background-color: var(--btn-hover-clr);
+}
+
+button.disabled:hover {
+   background-color: blueviolet;
+ 
+
+ }
+
+textarea, input {
+    background-color: var(--textarea-input-color);
+    border: 0.5px solid #0000006e;
+
+}
+mat-label {
+    color: #514d4de0;
+}
+
+textarea {
+    width: 478px;
+    height: 87px;
 }
 
 textarea.ng-error.ng-touched{
