@@ -36,16 +36,10 @@
     cursor: pointer;
 
 }
-.button:active:hover:not([disabled]) {
-
+button:enabled:hover{
     background-color: var(--btn-hover-clr);
 }
 
-button.disabled:hover {
-   background-color: blueviolet;
- 
-
- }
 
 textarea, input {
     background-color: var(--textarea-input-color);
