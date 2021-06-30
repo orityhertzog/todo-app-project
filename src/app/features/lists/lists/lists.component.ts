@@ -15,6 +15,7 @@ export class ListsComponent implements OnInit {
   constructor(private listService :ListService) { }
    
   ngOnInit(): void {
+    console.log("list ngOnint");
     this.allLists$ = this.listService.Lists$;
   }
 

@@ -2,7 +2,7 @@
     
     <div class="container">
             <mat-label>Caption: <i [style.color]="'red'"> *</i></mat-label>
-            <input type="text" formControlName="caption">
+            <input type="text" maxLength="11" formControlName="caption">
     </div>
 
         <div class="container">
@@ -31,7 +31,7 @@
             <mat-label>Color:<i [style.color]="'red'"> *</i></mat-label>
             <mat-select formControlName="color" placeholder="color: ">
                 <mat-option *ngFor="let color of colors" [value]="color" [style.color]="color">
-                    {{color}}
+                    <b>{{color}}</b>
                 </mat-option>
                 <mat-select-trigger [style.color]="listForm.value.color">
                     {{listForm.value.color}}

@@ -19,6 +19,7 @@ export class ListsGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.listService.Lists$.pipe(map(lists => {
+      console.log("guars list length: "+lists.length);
       if(lists.length > 0)  return true;
         return this.route.parseUrl('lists/-1/edit');
     }));

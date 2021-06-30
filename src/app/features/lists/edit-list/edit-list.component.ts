@@ -68,22 +68,20 @@ export class EditListComponent implements OnInit {
 
   }
 
-        onSubmit(){
-        this.router.params.pipe(
-        map(pararms => pararms.id),
-        filter(id => id)
-      ).subscribe(async id =>{
-        if(id === '-1'){
-        await this.newList(id);
-        this.route.navigate(['/', 'lists']);
-        }
-        else{
-          await this.editList(id);
-          this.route.navigate(['/', 'lists']);
+  onSubmit(){
+      this.router.params.pipe(
+      map(pararms => pararms.id),
+      filter(id => id))
+          .subscribe(async id =>{
+            if(id === '-1'){ 
+            await this.newList(id);
+            this.route.navigate(['/', 'lists']);
+            }
+            else{
+              await this.editList(id);
+              this.route.navigate(['/', 'lists']);
         }
       });
-      
-
     }
 
     getListById(id :string) :Promise<TodoList>{
@@ -94,9 +92,9 @@ export class EditListComponent implements OnInit {
       }
     }
 
-  editList(id: string) :Promise<TodoList>{
-    return this.listService.editList(this.listForm.value);
-  }
+      editList(id: string) :Promise<TodoList>{
+      return this.listService.editList(this.listForm.value);
+    }
 
   newList(id: string) :Promise<TodoList>{
     return this.listService.addList(this.listForm.value); 
