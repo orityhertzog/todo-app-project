@@ -22,6 +22,11 @@ Delete a list with all its toso items.
 - Building Components to consume the services
 - Using @Input and @Output in components
 
+![img1](todo-app\src\images\List.jpeg)
+![img2](todo-app\src\images\List1.jpeg)
+![img3](todo-app\src\images\List2.jpeg)
+![img4](todo-app\src\images\List3.jpeg)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
