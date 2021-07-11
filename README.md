@@ -22,13 +22,17 @@ Delete a list with all its toso items.
 - Building Components to consume the services
 - Using @Input and @Output in components
 
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## snapshots
+
 ![img1](https://github.com/orityhertzog/todo-app-project/blob/master/src/images/List.jpeg)
 ![img2](https://github.com/orityhertzog/todo-app-project/blob/master/src/images/List1.jpeg)
 ![img3](https://github.com/orityhertzog/todo-app-project/blob/master/src/images/List2.jpeg)
 ![img4](https://github.com/orityhertzog/todo-app-project/blob/master/src/images/List3.jpeg)
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 
