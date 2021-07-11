@@ -22,10 +22,10 @@ Delete a list with all its toso items.
 - Building Components to consume the services
 - Using @Input and @Output in components
 
-![img1](todo-app\src\images\List.jpeg)
-![img2](todo-app\src\images\List1.jpeg)
-![img3](todo-app\src\images\List2.jpeg)
-![img4](todo-app\src\images\List3.jpeg)
+![img1](src\images\List.jpeg)
+![img2](src\images\List1.jpeg)
+![img3](src\images\List2.jpeg)
+![img4](src\images\List3.jpeg)
 
 ## Development server
 
